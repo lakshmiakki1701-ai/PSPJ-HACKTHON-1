@@ -6,7 +6,6 @@ class Student {
     double marks;
     String courseName;
     int courseCredits;
-
     
     Student(String studentName, int rollNumber, double marks,
             String courseName, int courseCredits) {
@@ -17,17 +16,14 @@ class Student {
         this.courseCredits = courseCredits;
     }
 
-    
     double calculateFee() {
         return courseCredits * 1500;
     }
 
-    // Check eligibility
     boolean checkEligibility() {
         return marks >= 50;
     }
 
-    // Calculate scholarship percentage
     double calculateScholarship() {
         if (marks >= 85)
             return 20;
@@ -37,7 +33,6 @@ class Student {
             return 0;
     }
 
-    // Calculate final fee
     double calculateFinalFee() {
         double fee = calculateFee();
         double scholarship = calculateScholarship();
@@ -45,7 +40,6 @@ class Student {
         return fee - (fee * scholarship / 100);
     }
 
-    // Display all details
     void displayDetails() {
         System.out.println("\n--- Student Details ---");
         System.out.println("Student Name: " + studentName);
@@ -81,10 +75,8 @@ public class Main {
         System.out.print("Enter course credits: ");
         int credits = sc.nextInt();
 
-        // Create object using parameterized constructor
         Student s = new Student(name, roll, marks, course, credits);
 
-        // Check eligibility first
         if (s.checkEligibility()) {
             s.displayDetails();
         } else {
